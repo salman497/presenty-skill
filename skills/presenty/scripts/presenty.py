@@ -17,8 +17,8 @@ Usage:
   python3 presenty.py update --url "<presenty url>" --file slides.md --name "New Name"
 
 Options:
-  --theme      Reveal.js theme for create (default: Black). One of:
-               Black, White, League, Beige, Moon, Solarized, Night, Serif, Simple, Sky, Blood
+  --theme      Reveal.js theme for create (default: Black). In preference order:
+               Black, White, League, Sky, Beige, Simple, Serif, Blood, Night, Moon, Dracula, Solarized
   --animation  Slide transition for create (default: Slide). e.g. Slide, Zoom, Fade, Concave, Convex, None
 """
 
@@ -181,7 +181,7 @@ def main():
     c = sub.add_parser("create", help="create a new presentation")
     c.add_argument("--name", required=True, help="presentation display name")
     c.add_argument("--file", required=True, help="markdown file with slide content")
-    c.add_argument("--theme", help="theme, e.g. Black, White, League, Moon")
+    c.add_argument("--theme", help="theme, e.g. Black, White, League, Sky, Beige")
     c.add_argument("--animation", help="transition, e.g. Slide, Zoom, Fade")
     c.set_defaults(fn=cmd_create)
 

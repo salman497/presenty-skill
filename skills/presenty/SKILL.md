@@ -66,10 +66,11 @@ New presentation:
 python3 scripts/presenty.py create --name "Presentation Name" --file slides.md
 ```
 
-Optional: `--theme Black|White|League|Beige|Moon|Solarized|Night|Serif|Simple|Sky|Blood`
-(default Black) and `--animation Slide|Zoom|Fade|Concave|Convex` (default Slide).
-Pick a theme that suits the topic — e.g. `White` for corporate, `Moon`/`Night`
-for tech, `Beige`/`Serif` for classic topics.
+Optional: `--theme` and `--animation Slide|Zoom|Fade|Concave|Convex` (default Slide).
+Prefer themes in this order — pick the first one that suits the topic:
+`Black` (default, best all-rounder) → `White` (corporate/clean) → `League` →
+`Sky` → `Beige` → `Simple` → `Serif` → `Blood` → `Night` → `Moon` →
+`Dracula` → `Solarized`. When in doubt, stay with `Black`.
 
 It prints the id plus `edit_url` and `view_url`.
 
