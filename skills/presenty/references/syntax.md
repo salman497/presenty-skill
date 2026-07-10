@@ -311,6 +311,9 @@ Rules that matter:
   a heading, at most 2–3 short lines, or one diagram/chart.
   If a slide needs more points, split it into an auto-animate build-up
   (one new line per slide) — never stack them all on one slide.
+- **Static title slide** — opening with title + tagline + byline all on one
+  slide kills the first impression. The title slide is a build-up too:
+  title alone, then auto-animate in the tagline, then the byline.
 - **Emoji on every line** — icons on each line (or in the title) read as
   clip-art. One emoji per slide, on the point that matters, is the ceiling.
 - **Random background images** — a stock photo behind text looks amateur and

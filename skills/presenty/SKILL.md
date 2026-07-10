@@ -29,7 +29,7 @@ working examples, and the common mistakes that silently break slides.
 rules:
 
 - **Never put large text on one slide.** Any slide that would carry more than
-  a heading plus ~2 short lines must become a **progressive-disclosure
+  a heading plus **one** short line must become a **progressive-disclosure
   build-up**: consecutive slides with `<!-- .slide: data-auto-animate -->`,
   repeating the previous slide's content verbatim and adding **one** new line
   each slide. Use a descending heading hierarchy so the new line lands
@@ -72,9 +72,38 @@ rules:
   real, verified, topic-specific URL (a product screenshot, a logo the user
   gave you). For visual variety use `data-background-color` section-break
   slides instead.
-- Title slide with the topic as the main heading, then `***`-separated slides.
-- Each slide is **one idea**: a heading plus a diagram, a chart, or 1–3 short
-  lines.
+- **Open with a build-up title sequence, not a static title slide.** The
+  first impression must never be three lines at once. Slide 1 is the title
+  **alone**; then auto-animate slides add the tagline, then the byline:
+
+  ```markdown
+  <!-- .slide: data-auto-animate -->
+
+  # GoalMates
+
+  ***
+
+  <!-- .slide: data-auto-animate -->
+
+  # GoalMates
+
+  ### Location-based goal collaboration
+
+  ***
+
+  <!-- .slide: data-auto-animate -->
+
+  # GoalMates
+
+  ### Location-based goal collaboration
+
+  ##### Salman Aziz · goalmates.ai
+  ```
+
+  Then continue with `***`-separated slides.
+- Each slide is **one idea**: a heading plus a diagram, a chart, or a short
+  line. Text-only slides never show more than one new line at once — the
+  earlier lines arrived via the build-up.
 - Must include, somewhere in the deck:
   - at least one ` ```mermaid-steps ` diagram (flowchart, sequenceDiagram, or
     mindmap) — this is Presenty's signature animated-diagram feature
@@ -124,8 +153,11 @@ re-check until everything passes — do not publish a deck that fails a line.
 
 **Professional-quality check:**
 
-- [ ] no slide exceeds ~20 words — anything bigger is split into an
-      auto-animate build-up
+- [ ] the deck **opens** with an auto-animate title build-up (title alone
+      first — never title + tagline + byline on one slide)
+- [ ] no slide exceeds ~20 words, and no text slide introduces more than one
+      new line at once — anything bigger is split into an auto-animate
+      build-up
 - [ ] heading hierarchy is consistent (`##` titles, `####`/`#####` points)
 - [ ] emoji used as accents only — at most one per slide, none in the deck
       title, never one on every line; no random background/stock images
