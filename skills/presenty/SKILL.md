@@ -46,7 +46,7 @@ rules:
 
   ## Why Solar Energy?
 
-  #### ☀️ Clean and renewable
+  #### Clean and renewable
 
   ***
 
@@ -54,7 +54,7 @@ rules:
 
   ## Why Solar Energy?
 
-  #### ☀️ Clean and renewable
+  #### Clean and renewable
 
   #### 📉 Cost fell 90% in a decade
   ```
@@ -63,16 +63,18 @@ rules:
   audience sees points appear step by step instead of a wall of text.
 - **Max ~20 words per slide** (headings included, diagrams/charts excluded).
   Phrases, not sentences. Never paragraphs, never long bullet lists.
-- **Use emoji icons** (🚀 ✅ 📈 💡 👍 ⚠️ …) at the start of points, in
-  headings, and in mermaid/flowchart node labels (or `fa:fa-*` FontAwesome in
-  flowcharts) — they read as professional visual anchors. **Do not use random
-  stock/background images**: no `data-background-image`, no decorative
-  `<img>` from picsum/unsplash. Only embed an image if it's a real, verified,
-  topic-specific URL (a product screenshot, a logo the user gave you). For
-  visual variety use `data-background-color` section-break slides instead.
+- **Use emoji icons sparingly** (🚀 📈 💡 ⚠️ …) — at most one per slide, on
+  the point that deserves emphasis, never in the deck title, and never on
+  every line (an icon on each line looks like clip-art, not a presentation).
+  Inside flowchart node labels prefer `fa:fa-*` FontAwesome icons. **Do not
+  use random stock/background images**: no `data-background-image`, no
+  decorative `<img>` from picsum/unsplash. Only embed an image if it's a
+  real, verified, topic-specific URL (a product screenshot, a logo the user
+  gave you). For visual variety use `data-background-color` section-break
+  slides instead.
 - Title slide with the topic as the main heading, then `***`-separated slides.
 - Each slide is **one idea**: a heading plus a diagram, a chart, or 1–3 short
-  icon-prefixed lines.
+  lines.
 - Must include, somewhere in the deck:
   - at least one ` ```mermaid-steps ` diagram (flowchart, sequenceDiagram, or
     mindmap) — this is Presenty's signature animated-diagram feature
@@ -125,7 +127,9 @@ re-check until everything passes — do not publish a deck that fails a line.
 - [ ] no slide exceeds ~20 words — anything bigger is split into an
       auto-animate build-up
 - [ ] heading hierarchy is consistent (`##` titles, `####`/`#####` points)
-- [ ] points carry emoji icons; no random background/stock images anywhere
+- [ ] emoji used as accents only — at most one per slide, none in the deck
+      title, never one on every line; no random background/stock images
+      anywhere
 - [ ] one theme + one animation feel, `zoom` transition used at most once
 - [ ] deck flows: title → agenda/hook → body (visuals + build-ups) →
       close/summary

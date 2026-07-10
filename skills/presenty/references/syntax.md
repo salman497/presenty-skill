@@ -64,7 +64,7 @@ heading verbatim and add lines beneath it.
 
 This is **the** tool for progressive disclosure: never dump several points on
 one slide. Chain three or four auto-animate slides, each repeating everything
-before it and adding one new (smaller-heading, emoji-prefixed) line:
+before it and adding one new smaller-heading line:
 
 ```markdown
 <!-- .slide: data-auto-animate -->
@@ -77,7 +77,7 @@ before it and adding one new (smaller-heading, emoji-prefixed) line:
 
 ## Why Solar Energy?
 
-#### ☀️ Clean and renewable
+#### Clean and renewable
 
 ***
 
@@ -85,7 +85,7 @@ before it and adding one new (smaller-heading, emoji-prefixed) line:
 
 ## Why Solar Energy?
 
-#### ☀️ Clean and renewable
+#### Clean and renewable
 
 #### 📉 Cost fell 90% in a decade
 ```
@@ -271,10 +271,11 @@ Line-chart extras that work: `"borderColor"`, `"backgroundColor"`,
 
 ## Icons & images
 
-**Emoji icons are the primary visual device** — they always render, never 404,
-and read as professional. Prefix points with them (`#### 🚀 Ship faster`),
-put them in headings, and use them (or `fa:fa-*` FontAwesome) inside
-flowchart node labels: `F(fa:fa-rocket Launch)`.
+**Emoji icons are accents, not decoration** — they always render and never
+404, but over-using them looks like clip-art. At most **one per slide**, on
+the single point worth emphasizing (`#### 📉 Cost fell 90%`); never in the
+deck title and never on every line. Inside flowchart node labels use
+`fa:fa-*` FontAwesome instead: `F(fa:fa-rocket Launch)`.
 
 Plain HTML `<img>` tags work in slides, but only for **real, topic-specific
 images** (a product screenshot, a logo, a chart the user gave you) — never
@@ -307,10 +308,12 @@ Rules that matter:
 - **Auto-animate with nothing in common** — consecutive auto-animate slides
   must repeat identical text for the morph to read as animation.
 - **Walls of text** — Presenty presentations shine when each slide is one idea:
-  a heading, at most 2–3 short emoji-prefixed lines, or one diagram/chart.
+  a heading, at most 2–3 short lines, or one diagram/chart.
   If a slide needs more points, split it into an auto-animate build-up
   (one new line per slide) — never stack them all on one slide.
+- **Emoji on every line** — icons on each line (or in the title) read as
+  clip-art. One emoji per slide, on the point that matters, is the ceiling.
 - **Random background images** — a stock photo behind text looks amateur and
-  guessed URLs 404. Use emoji icons and `data-background-color` instead.
+  guessed URLs 404. Use `data-background-color` section breaks instead.
 - **Special characters in mermaid labels** — avoid `(`, `)`, `"` inside node
   text (they collide with mermaid shape syntax); spell words out instead.
