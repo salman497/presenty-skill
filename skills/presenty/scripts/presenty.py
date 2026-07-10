@@ -20,6 +20,8 @@ Options:
   --theme      Reveal.js theme for create (default: Black). In preference order:
                Black, White, League, Sky, Beige, Simple, Serif, Blood, Night, Moon, Dracula, Solarized
   --animation  Slide transition for create (default: Slide). e.g. Slide, Zoom, Fade, Concave, Convex, None
+  --mermaid-style  Mermaid diagram theme: dark, neutral, default, base.
+               Omit to let Presenty auto-match the Reveal theme (recommended).
 """
 
 import argparse
@@ -114,6 +116,8 @@ def cmd_create(args):
         editor["themeSelected"] = args.theme
     if args.animation:
         editor["animationSelected"] = args.animation
+    if args.mermaid_style:
+        editor["mermaidStyleSelected"] = args.mermaid_style
     url_name = slugify(args.name)
     now = datetime.now(timezone.utc).isoformat()
 
@@ -164,6 +168,8 @@ def cmd_update(args):
         editor["themeSelected"] = args.theme
     if args.animation:
         editor["animationSelected"] = args.animation
+    if args.mermaid_style:
+        editor["mermaidStyleSelected"] = args.mermaid_style
     patch = {"editor": editor, "modified": datetime.now(timezone.utc).isoformat()}
     if args.name:
         patch["name"] = args.name
@@ -183,6 +189,9 @@ def main():
     c.add_argument("--file", required=True, help="markdown file with slide content")
     c.add_argument("--theme", help="theme, e.g. Black, White, League, Sky, Beige")
     c.add_argument("--animation", help="transition, e.g. Slide, Zoom, Fade")
+    c.add_argument("--mermaid-style", dest="mermaid_style",
+                   choices=["dark", "neutral", "default", "base"],
+                   help="mermaid theme; omit to auto-match the Reveal theme")
     c.set_defaults(fn=cmd_create)
 
     g = sub.add_parser("get", help="fetch markdown of an existing presentation")
@@ -198,6 +207,9 @@ def main():
     u.add_argument("--name", help="optionally rename the presentation")
     u.add_argument("--theme", help="optionally change theme")
     u.add_argument("--animation", help="optionally change transition")
+    u.add_argument("--mermaid-style", dest="mermaid_style",
+                   choices=["dark", "neutral", "default", "base"],
+                   help="optionally change the mermaid theme")
     u.set_defaults(fn=cmd_update)
 
     args = p.parse_args()

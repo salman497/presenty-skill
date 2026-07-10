@@ -12,7 +12,7 @@ taken from Presenty's own feature-showcase presentation.
 5. [Clickable links in mindmaps: %%URL%%](#clickable-links-in-diagrams)
 6. [Charts: chartjs](#charts-chartjs)
 7. [Raw HTML blocks (stacked images, popups)](#raw-html-blocks)
-8. [Images](#images)
+8. [Icons & images](#icons--images)
 9. [Common mistakes](#common-mistakes)
 
 ---
@@ -62,6 +62,34 @@ smoothly move/resize; new elements fade in. The classic build-up pattern:
 The animation only works if consecutive slides repeat the same text — reuse the
 heading verbatim and add lines beneath it.
 
+This is **the** tool for progressive disclosure: never dump several points on
+one slide. Chain three or four auto-animate slides, each repeating everything
+before it and adding one new (smaller-heading, emoji-prefixed) line:
+
+```markdown
+<!-- .slide: data-auto-animate -->
+
+## Why Solar Energy?
+
+***
+
+<!-- .slide: data-auto-animate -->
+
+## Why Solar Energy?
+
+#### ☀️ Clean and renewable
+
+***
+
+<!-- .slide: data-auto-animate -->
+
+## Why Solar Energy?
+
+#### ☀️ Clean and renewable
+
+#### 📉 Cost fell 90% in a decade
+```
+
 ### Backgrounds (color / image / video)
 
 ```markdown
@@ -83,8 +111,11 @@ heading verbatim and add lines beneath it.
 ```
 
 Background URLs must be full absolute URLs to publicly reachable files.
-With image/video backgrounds, keep on-slide text minimal (it can clash with
-the background) — a single short heading works best.
+**Prefer `data-background-color`** — a colored section-break slide looks
+professional and never 404s. Only use an image/video background when the user
+supplied (or you verified) a genuinely relevant URL; never a random stock
+photo. With image/video backgrounds, keep on-slide text to a single short
+heading.
 
 ### Per-slide transition
 
@@ -238,26 +269,31 @@ Line-chart extras that work: `"borderColor"`, `"backgroundColor"`,
 ```
 ````
 
-## Images
+## Icons & images
 
-Plain HTML `<img>` tags work directly in slides:
+**Emoji icons are the primary visual device** — they always render, never 404,
+and read as professional. Prefix points with them (`#### 🚀 Ship faster`),
+put them in headings, and use them (or `fa:fa-*` FontAwesome) inside
+flowchart node labels: `F(fa:fa-rocket Launch)`.
+
+Plain HTML `<img>` tags work in slides, but only for **real, topic-specific
+images** (a product screenshot, a logo, a chart the user gave you) — never
+random decorative stock photos:
 
 ```markdown
-<img src="https://picsum.photos/seed/energy/700/400" width="700">
+<img src="https://example.com/verified/product-screenshot.png" width="700">
 ```
 
 Rules that matter:
-- Always use a full absolute `https://` URL from a free public source.
+- Always use a full absolute `https://` URL you verified actually resolves
+  (via web search/fetch, or supplied by the user).
 - **Never** use `https://www.presenty.dev/...` image URLs — those belong to the
   app itself.
 - Do not invent Unsplash photo IDs — a guessed
-  `images.unsplash.com/photo-...` URL is almost always a 404. Safe options:
-  - `https://picsum.photos/seed/<any-word>/800/500` — always resolves; themed
-    seed words give varied, professional photos.
-  - The one known-good Unsplash URL:
-    `https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3` (starry sky).
-  - A real image URL you verified via web search/fetch.
+  `images.unsplash.com/photo-...` URL is almost always a 404.
 - Size images with the `width` attribute so they fit the slide (~700–900 wide).
+- When you're tempted to add a decorative image, use an emoji icon or a
+  `data-background-color` slide instead.
 
 ## Common mistakes
 
@@ -271,6 +307,10 @@ Rules that matter:
 - **Auto-animate with nothing in common** — consecutive auto-animate slides
   must repeat identical text for the morph to read as animation.
 - **Walls of text** — Presenty presentations shine when each slide is one idea:
-  a heading, at most 2–4 short lines, or one diagram/chart/image.
+  a heading, at most 2–3 short emoji-prefixed lines, or one diagram/chart.
+  If a slide needs more points, split it into an auto-animate build-up
+  (one new line per slide) — never stack them all on one slide.
+- **Random background images** — a stock photo behind text looks amateur and
+  guessed URLs 404. Use emoji icons and `data-background-color` instead.
 - **Special characters in mermaid labels** — avoid `(`, `)`, `"` inside node
   text (they collide with mermaid shape syntax); spell words out instead.
